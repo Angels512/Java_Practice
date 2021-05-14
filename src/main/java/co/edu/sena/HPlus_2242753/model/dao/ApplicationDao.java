@@ -49,7 +49,7 @@ public class ApplicationDao
             Connection connection = DBConnection.getConnectionToDatabase();
 
             // Escribir insert query
-            String insertQuery = "insert into users values(?,?,?,?,?,?)";
+            String insertQuery = "insert into users values(?,aes_encrypt(?, 'AES'),?,?,?,?)";
 
             // Definir los parametros de la consulta (setter) PreparedStatement
             java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
