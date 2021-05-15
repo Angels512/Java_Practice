@@ -23,8 +23,14 @@ public class RegistrationUserServlet extends HttpServlet {
         // Colectar informacion del formulario
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String firstName = request.getParameter("fname");
-        String lastName = request.getParameter("lname");
+
+        String fr = request.getParameter("fname");
+        String firstName = fr.toUpperCase();
+
+        String ln = request.getParameter("lname");
+        String lastName = ln.toUpperCase();
+
+
         String activity = request.getParameter("activity");
         int age = Integer.parseInt(request.getParameter("age"));
 

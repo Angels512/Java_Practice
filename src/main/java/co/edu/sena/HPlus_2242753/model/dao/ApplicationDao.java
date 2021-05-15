@@ -49,7 +49,7 @@ public class ApplicationDao
             Connection connection = DBConnection.getConnectionToDatabase();
 
             // Escribir insert query
-            String insertQuery = "insert into users values(?,aes_encrypt(?, 'AES'),?,?,?,?)";
+            String insertQuery = "insert into users values(?,AES_ENCRYPT(?, 'AES'),?,?,?,?)";
 
             // Definir los parametros de la consulta (setter) PreparedStatement
             java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
@@ -69,4 +69,37 @@ public class ApplicationDao
 
         return rowsAffected;
     } // Fin registerUser
+
+
+    public boolean validateUser(String username, String password)
+    {
+        boolean isValidUser = false;
+
+        try
+        {
+            // Obtener conexion a BD
+            Connection connection = DBConnection.getConnectionToDatabase();
+
+            // Consulta SQL
+            String sql = "SELECT * FROM users WHERE username=? AND password=AES_ENCRYPT(?, 'AES')";
+
+            // Pasar los parametros necesarios para la consulta
+            java.sql.PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+
+            // Ejecutar la consulta y confirmar si el usuario existe
+            ResultSet set = statement.executeQuery();
+            while(set.next())
+            {
+                isValidUser = true;
+            }
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isValidUser;
+    }
+
 } // Fin Class ApplicationDao

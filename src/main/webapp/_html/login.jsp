@@ -4,7 +4,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <html>
     <head>
-        <link rel="stylesheet" href="../_css/style.css">
+        <link rel="stylesheet" href="_css/style.css">
         <meta charset="ISO-8859-1">
         <title>H+ Sport</title>
     </head>
@@ -14,11 +14,11 @@
             <nav class="nav" role="navigation">
                 <div class="container nav-elements">
                     <div class="branding">
-                        <a href="../index.html"><img src="../_images/hpluslogo.svg" alt="Logo - H Plus Sports"></a>
+                        <a href="index.html"><img src="_images/hpluslogo.svg" alt="Logo - H Plus Sports"></a>
                     </div>
                     <!-- branding -->
                     <ul class="navbar">
-                        <li><a href="../index.html">home</a></li>
+                        <li><a href="index.html">home</a></li>
                         <li><a href="redirect">linkedIn</a></li>
 
                     </ul>
@@ -36,11 +36,22 @@
         <section id="login" class="section">
             <div class="container tagline">
 
+                <%
+                    if (request.getAttribute("error") != null) {
+                %>
+                    <%=request.getAttribute("error")%><br />
+                <%
+                    }
+                %>
+
                 <em>LOGIN USER</em>
                 <form action="login" method="post">
-                    <label>Username</label>
-                    <input type="text" name="username" id="username"><br /> <label>Password</label>
-                    <input type="password" name="password" id="password"><br />
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" minlength="8" maxlength="30" pattern="[a-zA-Z_]+[a-zA-Z]" autofocus required><br />
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="[a-z0-9A-Z]+[a-z0-9A-Z]" required><br />
+
                     <input type="submit" value="Login">
                 </form>
             </div>
@@ -53,7 +64,7 @@
                 <nav class="nav" role="navigation">
                     <div class="container nav-elements">
                         <div class="branding">
-                            <a href="#home"><img src="../_images/hpluslogo.svg"
+                            <a href="#home"><img src="_images/hpluslogo.svg"
                                                  alt="Logo - H Plus Sports"></a>
                             <p class="address">
                                 100 Main Street<br> Seattle, WA 98144

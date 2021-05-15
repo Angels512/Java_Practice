@@ -41,14 +41,25 @@
 	 <em>Register User</em><br/>
 	 <em>{0}</em>
 		 <form action="registerUser" method="post">
-			 <label>Username</label> <input type="text" name="username" id="username" minlength="4" maxlength="30" autofocus required><br/>
-			 <label>Password</label> <input type="password" name="password" id="password" minlength="6" maxlength="12" required><br/>
-			 <label>First Name</label> <input type="text" name="fname" id="fname" minlength="2" maxlength="30" required><br/>
-			 <label>Last Name</label> <input type="text" name="lname" id="lname" minlength="2" maxlength="30" required><br/>
-			 <label>Age</label> <input type="text" name="age" id="age" minlength="2" maxlength="2" required><br/>
-			 <label>What do you want to do? </label>
+			 <label for="username">Username</label>
+			 <input type="text" name="username" id="username" minlength="8" maxlength="30" pattern="[a-zA-Z_]+[a-zA-Z]" autofocus required><br/>
+
+			 <label for="password">Password</label>
+			 <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="[a-z0-9A-Z]+[a-z0-9A-Z]" required><br/>
+
+			 <label for="fname">First Name</label>
+			 <input type="text" name="fname" id="fname" minlength="2" maxlength="30" pattern="[a-zA-Z ]+[a-zA-Z]" required><br/>
+
+			 <label for="lname">Last Name</label>
+			 <input type="text" name="lname" id="lname" minlength="4" maxlength="30" pattern="[a-zA-Z ]+[a-zA-Z]" required><br/>
+
+			 <label for="age">Age</label>
+			 <input type="text" name="age" id="age" minlength="1" maxlength="2" pattern="[1-9]+[1-9]" required><br/>
+
+			 <label for="activity">What do you want to do? </label>
 			 <input type="radio" name="activity" id="activity" value="Playing a sport">Play a Sport?
 			 <input type="radio" name="activity" id="activity" value="Exercise in Gym">Hit the Gym?<br/>
+
 			 <input type="submit" value="Submit" id="submit">
 		 </form>
 		</div>
