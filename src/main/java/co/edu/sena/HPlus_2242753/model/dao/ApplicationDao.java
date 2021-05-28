@@ -88,9 +88,9 @@ public class ApplicationDao
             statement.setString(1, username);
             statement.setString(2, password);
 
-
             // Ejecutar la consulta y confirmar si el usuario existe
             ResultSet set = statement.executeQuery();
+
             while(set.next())
             {
                 isValidUser = true;

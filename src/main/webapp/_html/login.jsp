@@ -47,10 +47,10 @@
                 <em>LOGIN USER</em>
                 <form action="login" method="post">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" minlength="8" maxlength="30" pattern="[a-zA-Z_]+[a-zA-Z]" autofocus required><br />
+                    <input type="text" name="username" id="username" minlength="8" maxlength="30" pattern="[a-zA-Z0-9_]+[a-zA-Z0-9]" autofocus required><br />
 
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="[a-z0-9A-Z]+[a-z0-9A-Z]" required><br />
+                    <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="[a-z0-9A-Z!@#$*&]+[a-z0-9A-Z!@#$*&]" required><br />
 
                     <input type="submit" value="Login">
                 </form>

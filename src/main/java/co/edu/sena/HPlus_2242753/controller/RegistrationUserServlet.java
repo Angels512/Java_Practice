@@ -1,6 +1,5 @@
 package co.edu.sena.HPlus_2242753.controller;
 
-import co.edu.sena.HPlus_2242753.model.beans.Product;
 import co.edu.sena.HPlus_2242753.model.beans.User;
 import co.edu.sena.HPlus_2242753.model.dao.ApplicationDao;
 
@@ -60,6 +59,9 @@ public class RegistrationUserServlet extends HttpServlet {
 
     } // Fin doPost
 
+
+
+    // Aqui pasa los parametros de getHTMLString que esta arriba, tanto la ubicacion como el mensaje
     public String getHTMLString(String filePath, String message) throws IOException
     {
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
